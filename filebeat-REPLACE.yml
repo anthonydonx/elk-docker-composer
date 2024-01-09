@@ -1,0 +1,21 @@
+filebeat.inputs:
+  - type: filestream
+    id: dbs-idn-serv_log-filestream
+    tags: ["dbs","idn","dbs-idn","dbs-idn-serv_log"]
+    fields:
+      app_id: dbs-idn-serv
+      env_id: dev
+    paths:
+      - c:\logs\dbs-idn-serv_log.log
+
+  - type: filestream
+    id: dbs-payment-serv_log-filestream
+    tags: ["dbs","payment","dbs-payment","dbs-payment-serv_log"]
+    fields:
+      app_id: dbs-payment-serv
+      env_id: dev
+    paths:
+      - c:\logs\dbs-payment-serv_log.log
+
+output.logstash:
+  hosts: ["localhost:5044"]  # Replace with your Logstash host and port
